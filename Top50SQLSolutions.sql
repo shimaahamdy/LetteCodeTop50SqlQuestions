@@ -13,3 +13,27 @@ on em.id = emp.id
 select name 
 from Customer
 where referee_id != 2 or referee_id is null
+
+--https://leetcode.com/problems/big-countries/
+
+select  name, population, area
+from world
+where area >= 25000000 or population >= 
+
+--https://leetcode.com/problems/product-sales-analysis-i/
+select product_name, year, price
+from Sales s left outer join Productn p
+on s.product_id = p.product_id
+
+--https://leetcode.com/problems/customer-who-visited-but-did-not-make-any-transactions/
+select v.customer_id, count(v.customer_id) as count_no_trans
+from visits as v left outer join transactions as t
+on v.visit_id = t.visit_id 
+where t.visit_id is null
+group by v.customer_id
+
+
+--https://leetcode.com/problems/article-views-i/
+select distinct author_id
+from views
+where author_id = viewer_id
